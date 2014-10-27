@@ -3,7 +3,7 @@
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD-3-Clause
  * @copyright Copyright (c) 2014 Zend Technologies USA Inc. (http://www.zend.com)
  */
-
+error_reporting(E_ALL ^ E_WARNING);
 /**
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.
