@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package xmlns="http://www.zend.com/server/deployment-descriptor/1.0" version="1.0">
+    <name>ZendCon Application</name>
+    <summary>An extension of Zend Skeleton Application</summary>
+    <description>This basic application contains concrete examples of ZF2 capabilities.</description>
+    <version>
+        <release>1.0.0</release>
+    </version>
+    <icon>zf2-logo-512x512.png</icon>
+    <eula>LICENSE</eula>
+    <appdir>data</appdir>
+    <docroot>data/public</docroot>
+    <scriptsdir>scripts</scriptsdir>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.4.28</min>
+            </php>
+            <zendframework2>
+                <min>2.3</min>
+                <max>3</max>
+            </zendframework2>
+        </required>
+    </dependencies>
+    <parameters>
+        <parameter id="db_host" display="Database host" required="true" type="hostname" readonly="false">
+            <defaultvalue>127.0.0.1</defaultvalue>
+        </parameter>
+        <parameter id="db_root_username" display="Database root username" required="true" type="string" readonly="false">
+            <defaultvalue>root</defaultvalue>
+        </parameter>
+        <parameter id="db_root_password" display="Database root password" required="true" type="password" readonly="false"/>
+        <parameter id="db_username" display="Database username" required="true" type="string" readonly="false"/>
+        <parameter id="db_password" display="Database password" required="true" type="password" readonly="false"/>
+        <parameter id="db_name" display="Database name" required="true" type="string" readonly="false">
+            <defaultvalue>phonebook</defaultvalue>
+        </parameter>
+    </parameters>
+</package>

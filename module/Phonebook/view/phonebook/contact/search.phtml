@@ -1,0 +1,10 @@
+<?php
+$title = "Search results";
+$this->headTitle($title);
+?>
+<h1 class="page-header"><?php echo $title; ?> <small class="text-right"><?php echo $this->result->count(); ?> entries found</small></h1>
+<ul>
+<?php foreach ($this->result as $contact): ?>
+<li><a href="<?php echo $this->url('phonebook/contact', array('action' => 'view', 'id' => $contact->getId())); ?>"><?php echo $contact->getFullname(); ?></a></li>
+<?php endforeach; ?>
+</ul>

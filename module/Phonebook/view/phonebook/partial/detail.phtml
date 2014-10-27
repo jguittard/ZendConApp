@@ -1,0 +1,30 @@
+<table class="table table-condensed table-no-border">
+	<tr>
+		<td><strong>Firstname</strong></td>
+		<td><?php echo $contact->getFirstname(); ?></td>
+	</tr>
+	<tr>
+		<td><strong>Lastname</strong></td>
+		<td><?php echo $contact->getLastname(); ?></td>
+	</tr>
+	<tr>
+		<td><strong>Email</strong></td>
+		<td><?php echo $contact->getEmail(); ?></td>
+	</tr>
+	<tr>
+		<td><strong>Address</strong></td>
+		<td><?php echo $contact->getAddress(); ?></td>
+	</tr>
+	<tr>
+		<td><strong>Phone</strong></td>
+		<td><?php echo $contact->getPhone(); ?></td>
+	</tr>
+	<tr>
+		<td><strong>Notes</strong></td>
+		<td><?php echo $contact->getNotes(); ?></td>
+	</tr>
+	<tr>
+		<td><strong>Created on</strong></td>
+		<td><?php echo (new \DateTime($contact->getCreatedAt()))->format('d/m/Y H:i'); ?></td>
+	</tr>
+</table>

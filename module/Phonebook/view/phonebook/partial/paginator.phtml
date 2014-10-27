@@ -1,0 +1,58 @@
+<?php if ($this->pageCount): ?>
+        <ul class="pagination">
+            <!-- First page link -->
+            <?php if ($this->first != $this->current): ?>
+            <li>
+                <a href="<?php echo $this->url($this->route, array(), array('query' => array('page' => $this->first))); ?>">&laquo;</a>
+            </li>
+            <?php else: ?>
+            <li class="disabled">
+                <span>&laquo;</span>
+            </li>
+            <?php endif; ?>
+            <?php if (isset($this->previous)): ?>
+            <!-- Previous page link -->
+            <li>
+                <a href="<?php echo $this->url($this->route, array(), array('query' => array('page' => $this->previous))); ?>">&lt;</a>
+            </li>
+            <?php else: ?>
+            <li class="disabled">
+                <span>&lt;</span>
+            </li>
+            <?php endif; ?>
+            <!-- Numbered page links -->
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <?php if ($page != $this->current): ?>
+                <li>
+                    <a href="<?php echo $this->url($this->route, array(), array('query' => array('page' => $page))); ?>">
+                    <?php echo $page; ?>
+                    </a>
+                </li>
+                <?php else: ?>
+                <li class="active">
+                    <span><?php echo $page; ?> <span class="sr-only">(current)</span></span>
+                </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <!-- Next page link -->
+            <?php if (isset($this->next)): ?>
+            <li>
+                <a href="<?php echo $this->url($this->route, array(), array('query' => array('page' => $this->next))); ?>">&gt;</a>
+            </li>
+            <?php else: ?>
+            <li class="disabled">
+                <span>&gt;</span>
+            </li>
+            <?php endif; ?>
+            <!-- Last page link -->
+            <?php if ($this->last != $this->current): ?>
+            <li>
+                <a href="<?php echo $this->url($this->route, array(), array('query' => array('page' => $this->last))); ?>">&raquo;</a>
+            </li>
+            <?php else: ?>
+            <li class="disabled">
+                <span>&raquo;</span>
+            </li>
+            <?php endif; ?>
+        </ul>
+<?php endif; ?>

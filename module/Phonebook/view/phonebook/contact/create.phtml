@@ -1,0 +1,10 @@
+<?php
+$title = "Create contact";
+$this->headTitle($title);
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('phonebook/contact', array('action' => 'create', 'id' => $this->id)));
+?>
+<h1 class="page-header"><?php echo $title; ?></h1>
+<?php echo $this->partial('phonebook/partial/back.phtml', array('title' => 'Cancel', 'class' => 'warning')); ?>
+<?php echo $this->form($form); ?>

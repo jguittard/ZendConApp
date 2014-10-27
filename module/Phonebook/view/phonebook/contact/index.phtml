@@ -1,0 +1,64 @@
+<?php 
+$title = "Contacts in the phonebook";
+$this->headTitle($title);
+$form = $this->form;
+$form->setAttribute('action', $this->url('phonebook/contact', array('action' => 'search')));
+?>
+
+<h1 class="page-header"><?php echo $title; ?></h1>
+<?php $flash = $this->flashMessenger();
+ echo $flash->render('error',   array('alert', 'alert-dismissable', 'alert-danger'));
+ echo $flash->render('warning', array('alert', 'alert-dismissable', 'alert-warning'));
+ echo $flash->render('success', array('alert', 'alert-dismissable', 'alert-success')); ?>
+<nav class="navbar navbar-default" role="navigation" style="padding: 0 10px">
+    <a href="<?php echo $this->url('phonebook/contact', array('action' => 'create')); ?>" class="btn btn-primary navbar-btn">Add contact</a>
+    <?php echo $this->form($this->form, null); ?>
+</nav>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Fullname</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Created on</th>
+			<th>Updated on</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if (count($this->contacts) > 0): ?>
+		<?php foreach ($this->contacts as $contact): ?>
+		<tr>
+			<td><a href="<?php echo $this->url('phonebook/contact', array('action' => 'view', 'id' => $contact->getId())); ?>" data-toggle="modal" data-target="#contact-modal"><?php echo $contact->getFullname(); ?></a></td>
+			<td><a href="mailto:<?php echo $contact->getEmail(); ?>"><?php echo $contact->getEmail(); ?></a></td>
+			<td><a href="tel:<?php echo $contact->getPhone(); ?>"><?php echo $contact->getPhone(); ?></a></td>
+			<td><?php echo (new \DateTime($contact->getCreatedAt()))->format('m/d/Y h:i A'); ?></td>
+			<td><?php echo $contact->getUpdatedAt() ? (new \DateTime($contact->getUpdatedAt()))->format('m/d/Y h:i A') : 'Never'; ?></td>
+			<td>
+				<a href="<?php echo $this->url('phonebook/contact', array('id' => $contact->getId(), 'action' => 'update')); ?>" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+				<a href="<?php echo $this->url('phonebook/contact', array('id' => $contact->getId(), 'action' => 'delete')); ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+		<?php else: ?>
+		<tr>
+			<td colspan="6" class="text-center text-muted">No contact found. Create one !</td>
+		</tr>
+		<?php endif; ?>
+	</tbody>
+</table>
+<?php // add at the end of the file after the table
+echo $this->paginationControl(
+    // the paginator object
+    $this->contacts,
+    // the scrolling style; see http://zf2.readthedocs.org/en/release-2.1.4/modules/zend.paginator.usage.html#rendering-pages-with-view-scripts
+    'sliding',
+    // the partial to use to render the control
+    array('phonebook/partial/paginator.phtml', 'Album'),
+    // the route to link to when a user clicks a control link
+    array(
+        'route' => 'phonebook/contact'
+    )
+);
+?>
+<div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true"></div>

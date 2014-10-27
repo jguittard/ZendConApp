@@ -1,0 +1,3 @@
+CREATE SCHEMA IF NOT EXISTS DB_NAME_PLACEHOLDER;
+GRANT ALL ON `DB_NAME_PLACEHOLDER`.* TO 'DB_USERNAME_PLACEHOLDER'@'localhost' IDENTIFIED BY 'DB_PASSWORD_PLACEHOLDER';
+CREATE TABLE `DB_NAME_PLACEHOLDER`.`contact` (`id` int(10) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(4) NOT NULL, `firstname` varchar(45) NOT NULL, `lastname` varchar(45) NOT NULL, `email` varchar(80) NOT NULL, `address` varchar(255) DEFAULT NULL, `phone` varchar(20) DEFAULT NULL, `notes` text, `created_at` datetime NOT NULL, `updated_at` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `email_UNIQUE` (`email`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

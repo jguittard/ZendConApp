@@ -1,0 +1,28 @@
+# Macintosh files
+.DS_Store
+
+# Studio project files
+.buildpath
+.project
+.settings/
+
+# Composer files
+composer.phar
+vendor/
+
+# Local configs
+config/autoload/local.php
+config/autoload/*.local.php
+
+# Binary gettext files
+*.mo
+
+# Properties files
+*.local.properties
+
+# Data
+data/logs/
+data/cache/
+data/session/
+data/tmp/
+temp/

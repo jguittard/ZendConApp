@@ -1,0 +1,19 @@
+<?php
+$title = "View contact";
+$this->headTitle($title);
+
+$contact = $this->contact;
+?>
+<h1 class="page-header"><?php echo $title; ?></h1>
+<?php $flash = $this->flashMessenger();
+ echo $flash->render('error',   array('alert', 'alert-dismissable', 'alert-danger'));
+ echo $flash->render('warning', array('alert', 'alert-dismissable', 'alert-warning'));
+ echo $flash->render('success', array('alert', 'alert-dismissable', 'alert-success')); ?>
+<nav class="navbar navbar-default" role="navigation" style="padding: 0 10px">
+<div class="container-fluid">
+<a href="<?php echo $this->url('phonebook/contact'); ?>" class="btn btn-default navbar-btn">Back to list</a>
+<a href="<?php echo $this->url('phonebook/contact', array('action' => 'update', 'id' => $contact->getId())); ?>" class="btn btn-primary navbar-btn">Update</a>
+<a href="<?php echo $this->url('phonebook/contact', array('action' => 'delete', 'id' => $contact->getId())); ?>" class="btn btn-danger navbar-btn">Delete</a>
+</div>
+</nav>
+<?php echo $this->partial('phonebook/partial/detail.phtml', array('contact' => $contact)); ?>

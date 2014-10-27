@@ -1,0 +1,32 @@
+{
+  "name" : "ZendConApp_wip",
+  "description" : "Skeleton Application for ZF2",
+  "require" : {
+    "php" : ">=5.3.3",
+    "zendframework/zendframework" : "2.3.*",
+    "neilime/zf2-twb-bundle" : "2.*@stable",
+    "akrabat/akrabat-session" : "dev-master",
+    "zfcampus/zf-apigility" : "~1.0",
+    "zfcampus/zf-apigility-documentation" : "~1.0",
+    "zfcampus/zf-development-mode" : "~2.0"
+  },
+  "require-dev" : {
+    "fzaninotto/faker" : "1.4.*",
+    "zendframework/zftool" : "dev-master",
+    "zendframework/zend-developer-tools" : "dev-master",
+    "zfcampus/zf-apigility-admin" : "~1.0",
+    "zfcampus/zf-apigility-welcome" : "~1.0",
+    "zfcampus/zf-deploy" : "~1.0",
+    "zfr/zfr-cors" : "~1.0",
+    "zend/zend-studio-development-mode" : "~1.0"
+  },
+  "license" : "BSD-3-Clause",
+  "keywords" : [ "framework", "zf2" ],
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "1.0-dev",
+      "dev-develop" : "1.1-dev"
+    }
+  },
+  "homepage" : "http://framework.zend.com/"
+}
